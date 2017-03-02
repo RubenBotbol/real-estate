@@ -4,12 +4,58 @@
 <head>
     <title>Home</title>
     <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link href="https://fontsgoogleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/vendors/font-awesome-4.7.0/css/font-awesome.min.css">
+    <script src = "/assets/js/jquery-3.1.1.min.js"></script>
+    <script src = "/assets/js/bootstrap.min.js"></script>
+    <% include ../partials/head %>
 </head>
 
 <body>
-    <p>Welcome to
-        <%= message %>
-    </p>
-</body>
+	<% include ../partials/navbar %>
 
+	<main>
+		<% include ../partials/form %>
+		<div class="container mg-b-20">
+		</div>
+
+		<div class= "col-xs-12 col-sm-8 col-md-6">
+			<form method="get" action="/process">
+				<div class="row">
+					<div class= "col-xs-8 col-sm-9">
+						<input type="text" class="from-control" name="lbcUrl" placeholder="https://www.leboncoin.fr/">
+						</div>
+						<div class="col-xs-4 col-sm-3">
+							<button type="submit" class="btn btn-default">Tell me</button>
+						</div>
+					</div>
+				</form>
+			</div>
+
+			<div class="data-value-content text-center">
+				<% if(data.deal.good) { %>
+					<div class="mg-t-20 mg-b-20">
+						<span class="fa fa-3x fa-smile-o text-success"></span>
+					</div>
+					<div class="pad-t-10">
+						<span class="text-success text-xxlarge marker">YES</span>
+					</div>
+					<%} else { %>
+
+						<div class="mg-t-20 mg-b-20">
+							<span class="fa fa-3x fa-frown-o text-danger"></span>
+						</div>
+
+						<div class="pad-t-10">
+							<span class="text-danger text-xxlarge marker">NO</span>
+						</div>
+						<% } %>
+			</div>
+
+					}
+
+				}
+		</main>
+</body>
 </html>
